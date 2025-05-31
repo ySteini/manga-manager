@@ -20,3 +20,11 @@ export default {
   },
   plugins: [],
 } satisfies Config;
+
+module.exports = {
+  content: ["./app/**/*.{ts,tsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
