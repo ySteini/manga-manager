@@ -20,6 +20,7 @@ model Manga {
   author      String
   description String
   file        String
+  preview     String?
   genre       String?
   collections MangaCollection[]
   createdAt   DateTime @default(now())

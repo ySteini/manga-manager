@@ -35,6 +35,10 @@ export default function PdfPreview({ url }: { url: string }) {
     }, [url, isClient]);
 
     return isClient ? (
-        <canvas ref={canvasRef} className="max-w-xs border shadow" />
+        <canvas
+            ref={canvasRef}
+            className="w-48 h-64 border-2 border-gray-600 rounded-md shadow-md"
+        />
     ) : null;
+
 }

@@ -20,17 +20,26 @@ export default function MangaIndex() {
     return (
         <div className="flex min-h-screen text-white bg-gray-900">
             {/* Sidebar */}
-            <aside className="w-64 bg-gray-800 p-6 space-y-6">
-                <h1 className="text-2xl font-bold">Manga Manager</h1>
-                <nav className="space-y-2">
+            <aside className="w-64 bg-gray-800 p-6 flex flex-col space-y-4 h-screen sticky top-0">
+                <h1 className="text-2xl font-bold mb-2">Manga Manager</h1>
+
+                <Link
+                    to="/manga_add"
+                    className="bg-blue-600 text-white text-center py-2 rounded hover:bg-blue-700 transition"
+                >
+                    ➕ Manga hinzufügen
+                </Link>
+
+                <nav className="flex flex-col space-y-2 mt-4">
                     <Link to="/manga" className="block hover:text-blue-400">📚 Übersicht</Link>
-                    <Link to="/manga_add" className="block hover:text-blue-400">➕ Hinzufügen</Link>
                     <Link to="/collections" className="block hover:text-blue-400">🗃️ Collections</Link>
                 </nav>
+
                 <Form method="post" action="/logout" className="absolute bottom-6 left-6">
                     <button className="bg-red-600 px-4 py-2 rounded hover:bg-red-700">Logout</button>
                 </Form>
             </aside>
+
 
             {/* Main content */}
             <main className="flex-1 p-8 overflow-y-auto">

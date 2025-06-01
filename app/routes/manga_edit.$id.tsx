@@ -37,9 +37,11 @@ export async function action({ request, params }: ActionFunctionArgs) {
 
     const intent = form.get("intent");
     if (intent === "delete") {
+        await prisma.mangaCollection.deleteMany({ where: { mangaId: id } });
         await prisma.manga.delete({ where: { id } });
         return redirect("/manga");
     }
+
 
     const title = form.get("title")?.toString() || "";
     const author = form.get("author")?.toString() || "";
