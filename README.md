@@ -1,40 +1,68 @@
-# Welcome to Remix!
+**Cold Mode aktiviert.**
 
-- 📖 [Remix docs](https://remix.run/docs)
+Hier ist eine vollständige README für dein Manga Manager Projekt:
 
-## Development
+---
 
-Run the dev server:
+# Manga Manager
 
-```shellscript
-npm run dev
-```
+Ein Webprojekt zur Verwaltung von Manga-Dateien mit Upload, Bearbeitung, Sammlungen und PDF-Vorschau.
 
-## Deployment
+## Features
 
-First, build your app for production:
+* Benutzer-Authentifizierung (Session-basiert)
+* Manga hinzufügen, bearbeiten, löschen
+* PDF-Upload mit automatischer Vorschau (Canvas-basiert)
+* Sammlungen (Collections) zur Gruppierung von Manga
+* Übersichtliche Benutzeroberfläche mit Sidebar-Navigation
+* Responsive Layout mit TailwindCSS
+* Datei-Hosting der Uploads
 
-```sh
-npm run build
-```
+## Technologien
 
-Then run the app in production mode:
+* Remix Run (React & Node.js Framework)
+* Prisma ORM mit SQLite
+* TailwindCSS für Styling
+* PDF.js für PDF-Vorschau im Browser
+* Node.js & npm
 
-```sh
-npm start
-```
+## Installation
 
-Now you'll need to pick a host to deploy it to.
+1. Repository klonen
+   `git clone <repository-url>`
 
-### DIY
+2. Abhängigkeiten installieren
+   `npm install`
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+3. Datenbank initialisieren und Prisma-Migration durchführen
+   `npx prisma migrate dev --name init`
 
-Make sure to deploy the output of `npm run build`
+4. Entwicklungsserver starten
+   `npm run dev`
 
-- `build/server`
-- `build/client`
+5. App im Browser öffnen:
+   `http://localhost:5173`
 
-## Styling
+## Projektstruktur
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+* `/app/routes` – Remix-Routen (Pages)
+* `/app/components` – React-Komponenten (z.B. PdfPreview)
+* `/prisma/schema.prisma` – Datenbankschema
+* `/public/uploads` – hochgeladene Manga-Dateien
+
+## Datenbankschema (Kurzfassung)
+
+* `User` – Benutzer mit Username, Passwort und Rolle
+* `Manga` – Manga mit Titel, Autor, Beschreibung, Datei, Genre und Sammlungen
+* `Collection` – Sammlungen von Manga
+* `MangaCollection` – Join-Tabelle für Manga und Collections (n\:m Beziehung)
+
+## Nutzung
+
+* Über die Sidebar kannst du Manga hinzufügen, bestehende Manga bearbeiten und Collections verwalten.
+* PDFs werden beim Upload gespeichert und mit einer Vorschau angezeigt.
+* Collections können Manga gruppieren und verwalten.
+
+## Wichtige Hinweise
+
+* Aktuell werden PDF-Vorschauen clientseitig mit PDF.js gerendert.
