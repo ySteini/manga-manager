@@ -15,10 +15,28 @@ model User {
 }
 
 model Manga {
-  id          Int    @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
   title       String
   author      String
   description String
   file        String
+  genre       String?
+  collections MangaCollection[]
   createdAt   DateTime @default(now())
+
+}
+
+model Collection {
+  id     Int               @id @default(autoincrement())
+  name   String
+  mangas MangaCollection[]
+}
+
+model MangaCollection {
+  mangaId      Int
+  collectionId Int
+  manga        Manga      @relation(fields: [mangaId], references: [id])
+  collection   Collection @relation(fields: [collectionId], references: [id])
+
+  @@id([mangaId, collectionId])
 }

@@ -10,7 +10,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
     try {
         const user = await register({ username, password });
-        return createUserSession(user.id, "/mangas");
+        return createUserSession(user.id, "/manga");
     } catch (err) {
         return json({ error: "User already exists" }, { status: 400 });
     }

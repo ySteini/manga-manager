@@ -12,7 +12,7 @@ export async function action({ request }: ActionFunctionArgs) {
     if (!user) {
         return json({ error: "Invalid credentials" }, { status: 400 });
     }
-    return createUserSession(user.id, "/mangas");
+    return createUserSession(user.id, "/manga");
 }
 
 export default function LoginPage() {
